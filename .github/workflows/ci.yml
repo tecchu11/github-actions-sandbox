@@ -19,6 +19,7 @@ jobs:
   hellos:
     needs: path-filter
     runs-on: ubuntu-latest
+    if: needs.path-filter.outputs.projects != '[]'
     strategy:
       matrix:
         project: ${{ fromJson(needs.path-filter.outputs.projects) }}
