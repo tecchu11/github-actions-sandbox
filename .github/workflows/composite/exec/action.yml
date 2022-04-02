@@ -9,21 +9,21 @@ inputs:
 runs:
   using: composite
   steps:
-    - name : Project A
+    - name: Project A
       if: inputs.project == 'projectA'
       run: |
         sh a.sh
       shell: bash
       working-directory: projectA
 
-    - name : Project B
+    - name: Project B
       if: inputs.project == 'projectB'
       run: |
         sh b.sh
       shell: bash
       working-directory: projectB
 
-    - name : Project C
+    - name: Project C
       if: inputs.project == 'projectC'
       run: |
         sh c.sh
