@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo Hello C
+echo Hello C project
