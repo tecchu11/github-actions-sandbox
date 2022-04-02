@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  pull_request
+
+jobs:
+  path-filter:
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.filter.outputs.changes }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: dorny/paths-filter@vb2feaf19c27470162a626bd6fa8438ae5b263721 #v2.10.2
+        id: filter
+        with:
+          filters: .github/workflows/config/filter.yml
+
+  hellos:
+    needs: path-filter
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: ${{ fromJson(needs.path-filter.outputs.projects }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Exec ${{ matrix.project }}
+        uses: .github/workflows/composite/exec
+        with:
+          project: ${{ matrix.project }}

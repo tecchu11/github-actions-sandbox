@@ -1,0 +1,11 @@
+projectA:
+  - 'projectA/**'
+  - 'common/**'
+
+projectB:
+  - 'projectB/**'
+  - 'common/**'
+
+projectC:
+  - 'projectC/**'
+
