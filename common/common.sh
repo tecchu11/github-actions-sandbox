@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo Hello common project
+echo "Hello common project"
