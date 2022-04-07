@@ -26,7 +26,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Exec ${{ matrix.project }}
-        uses: ./.github/workflows/composite/exec
+      - uses: ./.github/workflows/composite/setup-path
+        id: setup-path
         with:
+          project: ${{ matrix.project }}
+
+      - uses: ./.github/workflows/composite/exec
+        with:
+          script: ${{ steps.setup-path.outputs.path }}
           project: ${{ matrix.project }}

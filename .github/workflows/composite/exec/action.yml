@@ -2,6 +2,9 @@ name: Exec project
 description: Exec each project
 
 inputs:
+  script:
+    description: Script name
+    required: true
   project:
     description: Project name
     required: true
@@ -9,23 +12,8 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Project A
-      if: inputs.project == 'projectA'
-      run: |
-        sh a.sh
+    - name: Execute project
       shell: bash
-      working-directory: projectA
-
-    - name: Project B
-      if: inputs.project == 'projectB'
+      working-directory: ${{ inputs.project }}
       run: |
-        sh b.sh
-      shell: bash
-      working-directory: projectB
-
-    - name: Project C
-      if: inputs.project == 'projectC'
-      run: |
-        sh c.sh
-      shell: bash
-      working-directory: projectC
+        sh ${{ inputs.script }}

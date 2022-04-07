@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "projectA": "a.sh",
+    "projectB": "b.sh",
+    "projectC": "c.sh"
+  }
+}
