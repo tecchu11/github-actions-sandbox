@@ -2,6 +2,9 @@ name: Exec project
 description: Exec each project
 
 inputs:
+  script:
+    description: Script name
+    required: true
   project:
     description: Project name
     required: true
@@ -9,14 +12,8 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: ./.github/workflows/composite/setup-path
-      id: script
-      with:
-        project: ${{ inputs.project }}
-
     - name: Execute project
       shell: bash
       working-directory: ${{ inputs.project }}
       run: |
-        sh ${{ steps.script.outputs.path }}
-        
+        sh ${{ input.script }}
