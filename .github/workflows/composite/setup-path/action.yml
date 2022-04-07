@@ -8,7 +8,7 @@ inputs:
 
 outputs:
   path:
-    value: ${ steps.setup-path.outputs.path }}
+    value: ${{ steps.setup-path.outputs.path }}
     description: The path to execution script
 
 runs:
@@ -21,9 +21,3 @@ runs:
         key=.projects.${{ inputs.project }}
         value=$(jq -r ${key} ./.github/workflows/config/path-to-scripts.json)
         echo "::set-output name=path::${value}"
-
-    - name: Debug code
-      shell: bash
-      run: |
-        cd ${{ inputs.project }}
-        sh ${{ steps.setup-path.outputs.path }}

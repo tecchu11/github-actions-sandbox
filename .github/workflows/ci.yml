@@ -30,9 +30,8 @@ jobs:
         id: setup-path
         with:
           project: ${{ matrix.project }}
-#
-#      - uses: ./.github/workflows/composite/exec
-#        with:
-#          script: ${{ steps.setup-path.outputs.path }}
-#          project: ${{ matrix.project }}
 
+      - uses: ./.github/workflows/composite/exec
+        with:
+          script: ${{ steps.setup-path.outputs.path }}
+          project: ${{ matrix.project }}
