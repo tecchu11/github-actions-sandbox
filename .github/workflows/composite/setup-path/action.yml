@@ -1,0 +1,22 @@
+name: Setup path
+description: Setup path to execution script
+
+inputs:
+  project:
+    required: true
+    description: Project name
+outputs:
+  path:
+    value: ${ steps.setup-path.outputs.value }}
+    description: The path to execution script
+
+runs:
+  using: composite
+  steps:
+    - name: Setup path
+      id: setup-path
+      shell: bash
+      run: |
+        key=.projects.${{ inputs.project }}
+        value=$(jq -r $key ./.github/workflows/config/path-to-scripts.json)
+        echo "::set-output name=value::$value"
