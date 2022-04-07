@@ -13,6 +13,7 @@ runs:
       id: setup-path
       with:
         project: ${{ inputs.project }}
+
     - name: Execute project
       shell: bash
       working-directory: ${{ inputs.project }}

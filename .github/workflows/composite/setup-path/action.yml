@@ -20,4 +20,9 @@ runs:
       run: |
         key=.projects.${{ inputs.project }}
         value=$(jq -r ${key} ./.github/workflows/config/path-to-scripts.json)
-        echo "::set-output name=path::Hello"
+        echo "::set-output name=path::${value}"
+
+    - name: Debug code
+      shell: bash
+      run: |
+        echo ${{ steps.setup-path.outputs.path }}
