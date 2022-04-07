@@ -16,4 +16,5 @@ runs:
     - name: Execute project
       shell: bash
       run: |
+        echo ${{ steps.setup-path.outputs.path }}
         sh ${{ steps.setup-path.outputs.path }}
