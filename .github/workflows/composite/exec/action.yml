@@ -17,4 +17,4 @@ runs:
       shell: bash
       working-directory: ${{ inputs.project }}
       run: |
-        sh ${{{ steps.setup-path.outputs.path }}
+        sh ${{ steps.setup-path.outputs.path }}
