@@ -18,4 +18,4 @@ runs:
       shell: bash
       working-directory: ${{ inputs.project }}
       run: |
-        echo ${{ steps.setup-path.outputs.path }}
+        echo Hello
