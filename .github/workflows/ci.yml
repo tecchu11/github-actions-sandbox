@@ -34,5 +34,5 @@ jobs:
       - uses: ./.github/workflows/composite/exec
         with:
           script: ${{ steps.setup-path.outputs.path }}
-          project: ${{ martix.project }}
+          project: ${{ matrix.project }}
 
