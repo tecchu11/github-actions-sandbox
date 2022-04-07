@@ -1,7 +1,7 @@
 {
   "projects": {
-    "projectA": "./projectA/a.sh",
-    "projectB": "./projectB/b.sh",
-    "projectC": "./projectC/c.sh"
+    "projectA": "a.sh",
+    "projectB": "b.sh",
+    "projectC": "c.sh"
   }
 }
