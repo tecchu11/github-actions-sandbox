@@ -17,5 +17,4 @@ runs:
       shell: bash
       working-directory: ${{ inputs.project }}
       run: |
-        chmod +x ${{ steps.setup-path.outputs.path }}
-        ${{ steps.setup-path.outputs.path }}
+        echo ${{ steps.setup-path.outputs.path }}
