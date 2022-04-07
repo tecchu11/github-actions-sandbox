@@ -10,7 +10,7 @@ runs:
   using: composite
   steps:
     - uses: ./.github/workflows/composite/setup-path
-      id: setup-path
+      id: script
       with:
         project: ${{ inputs.project }}
 
@@ -18,4 +18,5 @@ runs:
       shell: bash
       working-directory: ${{ inputs.project }}
       run: |
-        echo Hello
+        sh ${{ steps.script.outputs.path }}
+        
