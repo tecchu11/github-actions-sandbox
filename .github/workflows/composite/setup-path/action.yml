@@ -19,5 +19,5 @@ runs:
       shell: bash
       run: |
         key=.projects.${{ inputs.project }}
-        value=$(yq --unwrapScalar $key ./.github/workflows/config/path-to-scripts.yml)
+        value=$(yq $key ./.github/workflows/config/path-to-scripts.yml)
         echo "::set-output name=path::${value}"
