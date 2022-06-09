@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: dorny/paths-filter@1ec7035ff53cbd7a98744bd986f6ca1c7e17d1cb
+      - uses: dorny/paths-filter@8c7f485a57f7cad3483dcc0fdf36122a0542f200
         id: filter
         with:
           filters: ./.github/workflows/config/filter.yml
